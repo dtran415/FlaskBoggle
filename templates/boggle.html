@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<button type="button" id="restartBtn" class="btn btn-primary">Restart</button>
+<div class="display-6">Score: <span id="score">0</span></div>
+<div class="display-6">High Score: <span id="highscore">{{high_score}}</span></div>
+<div class="display-6">Total Plays: <span id="total_plays">{{total_plays}}</span></div>
+<div class="display-6 mb-3">Time: <span id="time"></span></div>
+<div id="board">
+    <table>
+        {% for row in board %}
+        <tbody>
+            <tr>
+                {% for cell in row %}
+                <td>{{cell}}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+<form action="/" class="row my-3" id="guess-form">
+    <div class="col-4">
+        <input class="form-control" type="text" name="guess" id="guess" placeholder="Add Word" required>
+    </div>
+    <button type="submit" class="btn btn-primary col-1">Submit</button>
+</form>
+<div id="check-word-result"></div>
+<ul id="word-list"></ul>
+{% endblock %}
